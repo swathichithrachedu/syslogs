@@ -1,0 +1,6 @@
+---
+- hosts: webservers
+  tasks:
+
+  - name: close a JIRA issue
+    

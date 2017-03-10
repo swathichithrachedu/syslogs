@@ -1,0 +1,15 @@
+#!/bin/sh
+HOST=38.113.118.21
+USER=wsadmin
+PASSWD=m@gicn00dl3s
+
+#cd /opt
+
+FILENAME=`ls /opt/messages_wsinregistrar_wsobproxy* -ltr | tail -1 | awk '{print $9}'`
+
+lftp<<END_SCRIPT
+open sftp://$HOST -p2342
+user $USER $PASSWD
+put $FILENAME
+bye
+END_SCRIPT

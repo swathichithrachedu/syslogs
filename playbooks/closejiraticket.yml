@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  tasks:
+
+  - name: "close jira ticket"
+    jira:
+     uri: https://atmecstech.atlassian.net/ 
+     username: admin
+     password: atmecs@123
+     issue: 31
+     operation: transition
+     status: Done

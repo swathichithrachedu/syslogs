@@ -1,0 +1,13 @@
+---
+- hosts: webservers
+  vars: 
+   host: '{{ host }}'
+   servicename: '{{servicename}}' 
+  sudo: true
+  tasks:
+  - name: "nagios module disable alert"
+    ignore_errors: yes
+    nagios:
+     action: disable_alerts
+     service: "{{ servicename }}"
+     host: "{{ host }}"

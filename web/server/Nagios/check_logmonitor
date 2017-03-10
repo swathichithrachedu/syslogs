@@ -1,0 +1,23 @@
+CUR_LOG_FILE_SIZE=""
+
+MAX_LOG_FILE_SIZE=1073741824    #MAX log file size is 1GB(1024*1024*1024=1073741824 Bytes)
+
+################################################
+
+##### FUNCTIONS DEFINITION startS FROM HERE#####
+
+################################################
+
+CUR_LOG_FILE_SIZE=`du -b /opt/wsumserver/var/log/wsumserver/full | cut -f1`
+
+if [ $CUR_LOG_FILE_SIZE -ge $MAX_LOG_FILE_SIZE ];then
+
+        echo "CRITICAL: WSUMSERVER-39 log file size exceeds 1GB (current size : $CUR_LOG_FILE_SIZE Bytes) "
+
+        exit 2
+
+else
+
+        echo "Current file size in WSUMSERVER-39 is $CUR_LOG_FILE_SIZE Bytes (< 1GB)"
+
+fi

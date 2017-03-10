@@ -1,0 +1,22 @@
+---
+- hosts: localhost 
+  tasks:
+
+  - name: Create a JIRA issue
+    uri:
+     url: https://atmecstech.atlassian.net/rest/api/2/issue/
+     method: POST
+     user: admin
+     password: atmecs@123
+     body: "{{ lookup('file','issue.json') }}"
+     force_basic_auth: yes
+     status_code: 201
+     body_format: json
+     validate_certs: no
+     return_content: yes
+    register: result 
+  - set_fact: 
+      result_out: "{{ result.stdout | from_json }}"
+
+  - debug: 
+      var: result_out

@@ -1,0 +1,20 @@
+{
+  "Rule1":
+  {
+    "service_description":"Disk Space",
+    "format_Value":"percentage",
+    "max_value": "100",
+    "min_value": "0",
+    "max_limit":"70",
+    "min_limit":"20"
+  },
+  "Rule2":
+  {
+    "service_description":"Current Users",
+    "format_Value":"normal",
+    "max_value": "100",
+    "min_value": "0",
+    "max_limit":"70",
+    "min_limit":"20"
+  }
+}

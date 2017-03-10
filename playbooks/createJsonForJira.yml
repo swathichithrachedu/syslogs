@@ -1,0 +1,7 @@
+---
+- hosts: localhost 
+  sudo: true
+  tasks:  
+   - copy:
+      content: '{ "fields": {"project": {"key": "NAP" }, "summary": "Self Healing Demo ticket from ansible", "description": "Creating of an issue using project keys and issue type names using the ansible ", "issuetype": {"name": "Bug" }}}'
+      dest: "/home/centos/playbooks/issue1.json"

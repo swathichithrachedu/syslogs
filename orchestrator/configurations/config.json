@@ -1,0 +1,10 @@
+{
+  "Database":{
+    "sql_connector": "mysql+mysqlconnector://root:root@110.110.110.164/cse"
+  },
+  "Ticketing": {
+    "jira_url": "https://atmecs.atlassian.net",
+    "jira_username": "Guruprasad",
+    "jira_password": "GOVIND.dubey"
+  }
+}

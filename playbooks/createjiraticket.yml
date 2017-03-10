@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  tasks:
+  - name: Create an issue
+    jira:
+      uri: 'https://atmecstech.atlassian.net'
+      username: 'govind.dubey@atmecs.com'
+      password: 'atmecs@123'
+      project: 'NAP'
+      operation: create
+      summary: Example Issue
+      description: Created using Ansible
+      issuetype: Task
+    register: issue

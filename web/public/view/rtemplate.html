@@ -1,0 +1,161 @@
+<div class="jumbotron">
+    <div class="container">
+        <h3>Run-Book Manager</h3>
+        <p>Create/Edit Run-Book Scripts</p>
+    </div>
+</div>
+<div class="container">
+    <md-content>
+        <!--table width="100%">
+            <thead>
+            <tr>
+            <th align="center">list of files</th>
+            <th align="center">{{file}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td width="50%">
+                    <div class="span3">
+                        <table>
+                            <tr ng-repeat="file in files">
+                                <td>
+                                    <md-list-item class="secondary-button-padding">
+                                        <p>{{ file }}</p>
+                                        <md-button class="md-secondary" ng-click="getfiletext(file)">More Info</md-button>
+                                    </md-list-item>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </td>
+                <td width="50%">
+                    <div class="span3">
+                    <md-input-container class="md-block">
+                        <textarea ng-model="filetext"  md-select-on-focus aria-label="filetext"></textarea>
+                    </md-input-container>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+        </table-->
+        <div ng-show="loading" align="center">
+            <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+        </div>
+        <div layout="row" layout-sm="column">
+            <div flex ng-show="!loading">
+                <md-content flex>
+
+                </md-content>
+            </div>
+            <div flex ng-show="!results">
+                <md-content>
+
+                </md-content>
+            </div>
+        </div>
+        <md-button class="md-fab md-fab-top-right" aria-label="add" ng-click="newscript()">
+            <md-icon md-svg-src="img/icons/ic_add_black_24px.svg"></md-icon>
+        </md-button>
+        <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex">
+
+            <md-tab label="Run-Book Listing">
+                <md-content class="md-padding">
+                    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">Run-Book Listing</span>
+                            </md-card-title-text>
+                        </md-card-title>
+                    </md-card>
+
+                    <table width="97%" class="table table-striped" align="center" border="0">
+                        <tbody>
+                        <tr ng-repeat="(group, efiles) in files">
+                            <td bgcolor="#f0f8ff"><h4><b>{{ group }}</b></h4></td>
+                            <td>
+                                <table width="100%">
+                                    <tr ng-repeat="(key, value) in efiles">
+                                        <td><b> {{ key }}</b> : {{ value }}</td>
+                                        <td width="20%"><md-button class="md-raised md-primary" ng-click="getfiletext(group,key)">Edit</md-button></td>
+                                    </tr>
+                                </table>
+                                <!--md-divider></md-divider-->
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </md-content>
+            </md-tab>
+            <md-tab label="Script Editor" ng-disabled="results">
+                <md-content class="md-padding">
+                    <div ng-show="updateresults" align="center">
+                        <span>{{updatemsg}}</span>
+                    </div>
+                    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <p class="md-headline">{{key}} : {{value}}
+                                    <md-button class="md-raised md-secondary" ng-click="writefiletext(value, key, filetext)">Update</md-button></p>
+                            </md-card-title-text>
+                        </md-card-title>
+                    </md-card>
+                    <md-input-container class="md-block">
+                        <div class="row" layout-margin layout-padding>
+                        <textarea aria-label="filetext" ng-model="filetext"></textarea>
+                        <!--pre class="prettyprint linenums lang-sh">
+                            {{ filetext }}
+                        </pre-->
+                        </div>
+                    </md-input-container>
+                 </md-content>
+            </md-tab>
+            <md-tab label="New Script" ng-disabled="newclick">
+                <div ng-show="insertresults" align="center">
+                    <span>{{insertmsg}}</span>
+                </div>
+                <md-content class="md-padding">
+                <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <p class="md-headline">Create a New Script
+                                <md-button class="md-raised md-secondary" ng-click="newwritefiletext(eventName, folder, newfiletext)">Save</md-button></p>
+                        </md-card-title-text>
+                    </md-card-title>
+                </md-card>
+                </md-content>
+                <md-content layout-padding layout-margin>
+                    <div layout="row">
+                        <md-input-container flex="50">
+                            <label>Select folder</label>
+                            <md-select name="type" ng-model="folder" required>
+                                <md-option ng-repeat="(group, files) in files" ng-value="group">{{ group }}</md-option>
+                            </md-select>
+                        </md-input-container>
+                    </div>
+                    <div layout="row">
+                        <md-input-container flex="50">
+                            <label>Event Name / File Name (with extension)</label>
+                            <input required name="eventName" ng-model="eventName">
+                            <div ng-messages="projectForm.clientName.$error">
+                                <div ng-message="required">This is required.</div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                    <div class="row">
+                    <md-input-container class="md-block">
+                        <label>Type Script here</label>
+                            <textarea aria-label="newfiletext" ng-model="newfiletext" rows="50"></textarea>
+                            <!--pre class="prettyprint linenums lang-sh">
+                                {{ filetext }}
+                            </pre-->
+                    </md-input-container>
+                    </div>
+                </md-content>
+                </div>
+            </md-tab>
+        </md-tabs>
+    </md-content>
+</div>

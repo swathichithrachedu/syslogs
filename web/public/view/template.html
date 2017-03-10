@@ -1,0 +1,90 @@
+<div class="jumbotron">
+    <div class="container">
+        <h3>Assets</h3>
+        <p></p>
+    </div>
+</div>
+<div class="container">
+<md-content>
+    <!--table width="100%">
+        <thead>
+        <tr>
+        <th align="center">list of files</th>
+        <th align="center">{{file}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td width="50%">
+                <div class="span3">
+                    <table>
+                        <tr ng-repeat="file in files">
+                            <td>
+                                <md-list-item class="secondary-button-padding">
+                                    <p>{{ file }}</p>
+                                    <md-button class="md-secondary" ng-click="getfiletext(file)">More Info</md-button>
+                                </md-list-item>
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </td>
+            <td width="50%">
+                <div class="span3">
+                <md-input-container class="md-block">
+                    <textarea ng-model="filetext"  md-select-on-focus aria-label="filetext"></textarea>
+                </md-input-container>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    </table-->
+    <div ng-show="loading" align="center">
+        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+    <div layout="row" layout-sm="column">
+        <div flex ng-show="!loading">
+            <md-content flex>
+                <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <span class="md-headline">Scripts Listing</span>
+                        </md-card-title-text>
+                    </md-card-title>
+                </md-card>
+                <md-list>
+                    <md-list-item class="md-1-line" ng-repeat="file in files">
+                        <md-list-item class="secondary-button-padding">
+                            <p>{{ file }}</p>
+                            <md-button class="md-raised md-secondary" ng-click="getfiletext(file)">Edit</md-button>
+                        </md-list-item>
+                        <md-divider></md-divider>
+                    </md-list-item>
+                </md-list>
+            </md-content>
+        </div>
+        <div flex ng-show="!results">
+            <md-content>
+                <div ng-show="updateresults" align="center">
+                    <span>{{updatemsg}}</span>
+                </div>
+                <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+                    <md-card-title>
+                        <md-card-title-text>
+                            <p class="md-headline">{{fname}}
+                            <md-button class="md-raised md-secondary" ng-click="writefiletext(fname, filetext)">Update</md-button></p>
+                        </md-card-title-text>
+                    </md-card-title>
+                </md-card>
+                <md-input-container class="md-block">
+                    <textarea md-select-on-focus aria-label="filetext" ng-model="filetext"></textarea>
+                    <!--pre class="prettyprint linenums lang-sh">
+                        {{ filetext }}
+                    </pre-->
+                </md-input-container>
+            </md-content>
+        </div>
+    </div>
+</md-content>
+</div>

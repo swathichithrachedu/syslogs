@@ -1,0 +1,10 @@
+---
+- hosts: {{ host }}
+  tasks:
+
+  - name: "change service status"
+    command: "/etc/init.d/apache2 start"
+    result: servicestatus
+  - name: "check service status"
+    command: "/etc/init.d/apache2 "
+    

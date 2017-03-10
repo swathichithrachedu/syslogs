@@ -1,0 +1,48 @@
+<div class="jumbotron">
+    <div class="container">
+        <h3>Threshold</h3>
+        <p>Parameters of hosts being monitored by Nagios</p>
+    </div>
+</div>
+<div ng-show="loading" align="center">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<div ng-show="results" align="center">
+    <span>{{msg}}</span>
+</div>
+<md-content>
+<div class="container" ng-show="!loading">
+<div class="container">
+        <table class="table table-striped">
+            <thead>
+            <th>Host</th>
+            <th>Service</th>
+            <th>Use</th>
+            <th>Command</th>
+            <th></th>
+            </thead>
+            <tr ng-repeat="param in params" ng-include="getTemplate(param)">
+            </tr>
+            <script type="text/ng-template" id="display">
+                <td>{{param.host_name}}</td>
+                <td>{{param.service_description}}</td>
+                <td>{{param.use}}</td>
+                <td>{{param.check_command}}</td>
+                <td>
+                    <md-button class="md-raised md-primary" ng-click="editparam(param)">Edit</md_button>
+                </td>
+            </script>
+            <script type="text/ng-template" id="edit">
+                <td><input type="text" ng-model="param.host_name" disabled/></td>
+                <td><input type="text" ng-model="param.service_description" disabled/></td>
+                <td><input type="text" ng-model="param.use" disabled/></td>
+                <td><input type="text" ng-model="param.check_command"/></td>
+                <td>
+                    <md_button class="md-raised md-primary" ng-click="saveparam(param)">Save</md_button>
+                    <md_button class="md-raised md-warn" ng-click="reset()">Cancel</md_button>
+                </td>
+            </script>
+        </table>
+</div>
+</div>
+</md-content>

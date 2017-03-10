@@ -1,0 +1,28 @@
+{
+    "Check_ACD_Presence": {
+        "Check_ACD_Presence": "Check_ACD_Presence.sh"
+    }, 
+    "auto_scp_logs": {
+        "auto_scp_logs": "auto_scp_logs.sh"
+    }, 
+    "checkconf": {
+        "checkconf": "checkconf.sh"
+    },  
+    "firewall": {
+        "firewall": "firewall.sh"
+    }, 
+    "monitor_fax_files": {
+        "monitor_fax_files": "monitor_fax_files.sh"
+    },  
+    "scp_dump": {
+        "scp_dump": "scp_dump.sh", 
+        "scp_dump1": "scp_dump1.sh", 
+        "scp_dump2": "scp_dump2.sh"
+    },  
+    "switch": {
+        "switch": "switch.sh"
+    },  
+    "users": {
+        "users": "users.sh"
+    }
+}

@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+#  sudo: true
+  vars:
+    motd_value: "{{ lookup('file', '/etc/motd') }}"
+  tasks:
+  - debug: msg="motd value is {{ motd_value }}"
+    become: sudo
+  - git:
+     repo: ssh://centos@110.110.110.164/seal 
+     dest: /tmp/gitrepo
+#     version: release-0.22

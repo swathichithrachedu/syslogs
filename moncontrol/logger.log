@@ -1,0 +1,15 @@
+DEBUG:root:In Log File...
+DEBUG:MyLogger:this is debug
+CRITICAL:MyLogger:this is critical
+INFO:MyLogger:this is info
+WARNING:MyLogger:this is critical
+DEBUG:root:In Log File...
+DEBUG:MyLogger:this is debug
+CRITICAL:MyLogger:this is critical
+INFO:MyLogger:this is info
+WARNING:MyLogger:this is critical
+DEBUG:root:In Log File...
+DEBUG:MyLogger:this is debug
+CRITICAL:MyLogger:this is critical
+INFO:MyLogger:this is info
+WARNING:MyLogger:this is critical

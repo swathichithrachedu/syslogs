@@ -1,0 +1,27 @@
+#Replication delay
+
+SECONDS_BEHIND=""
+
+CRITICAL="0"
+
+mysql -uwsadmin -h10.20.48.75 -p(password) -e"show slave status \G;" > /home/wsadmin/waseem/Seconds_Behind_Master.txt
+
+SECONDS_BEHIND=`cat /home/wsadmin/waseem/Seconds_Behind_Master.txt | grep Seconds_Behind_Master | awk '{print $2}'`
+
+if [ $SECONDS_BEHIND -gt $CRITICAL ];then
+/usr/sbin/sendmail -t -oi  <<EOF
+From:audit_operations@panterranetworks.com
+To:waseem@panterranetworks.com
+Subject: Replication delay in 10.xx.xx.75
+
+Hi Team,
+        There is replication delay($SECONDS_BEHIND) in db 10.xx.xx.75, please verify once.
+
+Thanks,
+Operations Team
+Panterra Networks
+indiaops@panterranetworks.com
+800-805-0558
+
+EOF
+fi

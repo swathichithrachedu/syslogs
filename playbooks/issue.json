@@ -1,0 +1,1 @@
+{"fields":{"project":{"key":"NAP"}, "summary":"service apache2 is in CRITICAL state of host : 110.110.110.239.","description": "This issue will be resolved by orchestrator in few minutes.", "issuetype":{"name":"Bug"}}}

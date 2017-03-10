@@ -1,0 +1,6 @@
+Flask==0.11.1
+SQLAlchemy==1.1.4
+pynag==0.9.1
+jira
+ipaddress
+http://cdn.mysql.com//Downloads/Connector-Python/mysql-connector-python-2.0.5.tar.gz

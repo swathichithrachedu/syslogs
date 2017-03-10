@@ -1,0 +1,23 @@
+<div class="jumbotron">
+    <div class="container">
+        <h3>Config</h3>
+        <p></p>
+    </div>
+</div>
+<md-content layout-padding>
+    <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+        <md-card-title>
+            <md-card-title-text>
+                <p class="md-headline">
+                    <md-button class="md-raised md-secondary" ng-click="createevent()">Copy file to disk</md-button>
+                    <div ng-show="loading" align="center">
+                        <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                    </div>
+                    <div ng-show="updateresults" align="center">
+                        <span>{{updatemsg}}</span>
+                    </div>
+                </p>
+            </md-card-title-text>
+        </md-card-title>
+    </md-card>
+</md-content>

@@ -1,0 +1,78 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+.navbar-custom {
+    -webkit-box-shadow: 0 6px 4px -4px #999;
+    -moz-box-shadow: 0 6px 4px -4px #999;
+    box-shadow: 0 6px 4px -4px #999;
+    background-color: #3c3c3c;
+}
+
+.jumbotron {
+    -webkit-box-shadow: 0 4px 2px -2px #999;
+    -moz-box-shadow: 0 4px 2px -2px #999;
+    box-shadow: 0 4px 2px -2px #999;
+}
+.jumbotron {
+    background-color: #4FC3F7;
+    padding-bottom: 3px;
+    padding-top: 39px;
+}
+
+.jumbotron P {
+    font-size: 15px;
+    font-weight: 300;
+}
+
+.span3 {
+    height: 400px !important;
+    overflow: scroll;
+}
+
+md-card.md-default-theme, md-card {
+    color: rgba(0,0,0,0.87);
+    background-color: rgba(255, 205, 64, 0.38);
+    border-radius: 2px;
+}
+
+.highlighted { background: yellow }
+
+splash-screen{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    position: fixed;
+    z-index: 10000;
+    background-color: #1b6d85;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+splash-screen._splash_fade_out{
+    opacity: 0;
+}
+
+.splash{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    position: fixed;
+
+    background-color: #1b6d85;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}

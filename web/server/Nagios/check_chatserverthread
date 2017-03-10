@@ -1,0 +1,26 @@
+#Chatserver Thread Monitoring
+#Nagios Plugin
+CUR_COUNT=""
+
+MAX_COUNT=1200    
+
+################################################
+
+##### FUNCTIONS DEFINITION startS FROM HERE#####
+
+################################################
+
+CUR_COUNT=`ps -eaT | grep chatserver | wc -l`
+
+if [ $CUR_COUNT -ge $MAX_COUNT ];then
+
+        echo "CRITICAL: Chatserver-121 thread count exceeds 1200 (current count : $CUR_COUNT) "
+
+        exit 2
+
+else
+
+        echo "Current count in Chatserver-121 is $CUR_COUNT"
+
+fi
+

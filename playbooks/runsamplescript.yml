@@ -1,0 +1,22 @@
+---
+- hosts: 110.110.110.239 
+  sudo: true
+  vars:
+    scriptname: '{{ scriptname }}'
+  tasks:
+  - name: "run shell script on host"
+    script: /home/centos/scripts/{{ scriptname }}
+#    become: sudo
+    ignore_errors: yes
+    register: output
+
+#  - name: "Script failed update to L3 "
+#    uri:
+#     url: https://your.form.based.auth.example.com/index.php
+#     method: POST
+   #  body: "{{}}"
+    # status_code: 204
+    # body_format: json
+     
+    #register: jiraL3 
+    

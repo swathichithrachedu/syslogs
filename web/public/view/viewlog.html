@@ -1,0 +1,28 @@
+<div class="jumbotron">
+    <div class="container">
+        <h3>Log</h3>
+        <p>SEAL Log</p>
+    </div>
+</div>
+<div ng-show="loading" align="center">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<md-content layout-padding>
+    <!--md-input-container class="md-block">
+        <div layout-margin layout-padding>
+            <textarea aria-label="filetext" ng-model="filetext" disabled></textarea>
+
+        </div>
+    </md-input-container-->
+            <ul>
+                <!-- filter code -->
+                <input type="text" placeholder="Search" ng-model="search.text">
+
+                <ul>
+                    <!-- filter code -->
+                    <div ng-repeat="item in filetext | filter:search.text" ng-bind-html="item.text | highlight:search.text">
+                    </div>
+                </ul>
+            </ul>
+
+</md-content>
